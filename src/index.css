@@ -1,13 +1,178 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: 500px 75px;
+    grid-template-areas:
+        "img1 img2 list"
+        "tasks tasks tasks"
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.input-area {
+    display: flex;
+    background-color:rgba(105,225,241,255);
+    grid-area: img1;
+    align-items: flex-end;
+}
+
+.input-area img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.input-fields {
+    background-color: rgba(105,225,241,255);
+    grid-area: img2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 40px;
+    padding-top: 30px;
+}
+
+.list-area {
+    background-color:rgba(105,225,241,255);
+    grid-area: list;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-width:5px;  
+    border-left-style: dashed;
+    border-color: rgba(38,39,39,255);
+}
+
+.tasks-remaining {
+    background-color: rgba(38,39,39,255);
+    grid-area: tasks;
+    color:  rgb(211, 211, 211, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    background-color: rgba(38,39,39,255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+}
+
+.title {
+    font-family: Oswald;
+    font-size: 25px;
+    cursor: pointer;
+    transition: all .3s ease 0s;
+}
+
+.title a {
+    text-decoration: none;
+    color: rgba(105,225,241,255);
+    transition: all .3s ease 0s;
+}
+
+.title a:hover{
+    color: rgb(105,225,241, .8)
+}
+
+.head-links {
+    margin-right: 40px;
+}
+
+.head-links li {
+    color:  rgb(211, 211, 211, 1);
+    display: inline-block;
+    padding: 0px 10px;
+    cursor: pointer;
+    transition: all .3s ease 0s;
+}
+
+.head-links a {
+    text-decoration: none;
+    color:  rgb(211, 211, 211, 1);
+}
+
+.head-links a:hover {
+    color: rgb(211, 211, 211, .8)
+}
+
+
+button {
+    padding: 10px 40px;
+    font-family: Oswald;
+    font-size: medium;
+    background-color: rgba(105,225,241,255);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s ease 0s;
+}
+
+button:hover {
+    background-color: rgb(105,225,241, .8)
+}
+
+.input-item {
+    padding: 3px;
+    margin-left: 15px;
+}
+
+.input-item label {
+    cursor: pointer;
+    display: flex;
+    width: max-content;
+    height: max-content;
+    position: relative;
+    vertical-align: middle;
+}
+
+.input-item input[type='checkbox'] {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+}
+
+.input-item label::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    border: .05em solid black;
+    border-radius: .6em;
+    margin-right: .5em;
+    background-color: #eaebeb;
+}
+
+.input-item label:hover::before, .input-item input[type='checkbox']:hover + label::before {
+    background-color: rgb(211, 211, 211);
+}
+
+.input-item input[type='checkbox']:focus + label::before {
+    box-shadow: 0 0 20px black;
+}
+
+.input-item input[type='checkbox']:checked + label::before {
+    background-color: rgb(211, 211, 211)
+    ;
+    content: '\002714';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.side-title {
+    display: flex;
+    align-self: center;
+    padding: 10px;
+    font-family: Oswald;
+    font-size: 22px;
+}
+
+#main-input {
+    background-color: #eaebeb;
+    border-radius: 7px;
 }
